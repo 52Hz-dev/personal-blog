@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import BlogCard from './BlogCard'
 import ReactPaginate from 'react-paginate';
+import NavBar from './NavBar';
 
 const Blogs = () => {
     const [blogs, setBlogs] = useState();
@@ -32,7 +33,7 @@ const Blogs = () => {
 
   return (
     <div className='container'>
-        <div className="d-flex justify-content-center pt-5 ">
+        <div className="row height d-flex justify-content-center align-items-center">
           
           <form onSubmit={(e) => searchBlogs(e)}>
             <div className='d-flex'>
@@ -46,16 +47,15 @@ const Blogs = () => {
           <h4>Blogs</h4>
           <a href='/create' className='btn btn-dark'>Create</a>
         </div>
+        <div>
+
         <div className='row'>
-            
             {
                 (blogs) && blogs.map((blog) => {
                     return (<BlogCard blogs={blogs} setBlogs={setBlogs} blog={blog} key={blog.id}/>)
                 })
-            }
-            
-            
-            
+            }        
+        </div>
         </div>
     </div>
   )

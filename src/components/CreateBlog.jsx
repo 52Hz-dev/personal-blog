@@ -27,7 +27,7 @@ const CreateBlog = () => {
 
         const result = await res.json();
 
-        if (result.status == false) {
+        if (result.status === false) {
             alert(result.errors.image);
             e.target.value = null;
         }   
